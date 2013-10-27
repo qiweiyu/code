@@ -13,12 +13,12 @@ return array(
 	),
 
 	'modules'=>array(
-		'gii'=>array(
+		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array(),
-		),
+	),*/
 	),
 
 	// application components
