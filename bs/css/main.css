@@ -1,0 +1,4 @@
+#pages span.closePage{margin-left:10px;cursor:pointer;}
+#pages span.clearCloseStyle{color:inherit;background:inherit;}
+#pages.nav-tabs>li>a {border-color:#DDD;border-bottom-color:transparent;}
+#pages-content .tab-pane{height:100%;}

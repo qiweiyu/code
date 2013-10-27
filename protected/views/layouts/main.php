@@ -4,16 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/bs/js/jquery.min.js" ></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/bs/js/bootstrap.min.js" ></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/bs/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/bs/css/main.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -22,37 +16,37 @@
 
 <div class="container" id="page">
 
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+	<div class="navbar navbar-default navbar-fixed-top" role="nav">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/"><?php echo CHtml::encode(Yii::app()->name); ?></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'htmlOptions'=>array(
+						'class' => 'nav navbar-nav',
+					),
+					'items'=>array(
+						array('label'=>'Home', 'url'=>array('/site/index')),
+						array('label'=>'View', 'url'=>array('/site/view')),
+						array('label'=>'New', 'url'=>array('/site/upload'), 'visible'=>!Yii::app()->user->isGuest),
+					),
+				)); ?>
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'htmlOptions'=>array(
+						'class' => 'nav navbar-nav navbar-right',
+					),
+					'items'=>array(
+						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+					),
+				)); ?>
+			</div>
+		</div>
+	</div>
+	<div style="height:50px;margin-bottom:20px;"></div>
 
 	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
 </div><!-- page -->
 
 </body>
