@@ -1,4 +1,4 @@
-#pages span.closePage{margin-left:10px;cursor:pointer;}
-#pages span.clearCloseStyle{color:inherit;background:inherit;}
-#pages.nav-tabs>li>a {border-color:#DDD;border-bottom-color:transparent;}
-#pages-content .tab-pane{height:100%;}
+#file span.closePage{margin-left:10px;cursor:pointer;}
+#file span.clearCloseStyle{color:inherit;background:inherit;}
+#file.nav-tabs>li>a {border-color:#DDD;border-bottom-color:transparent;}
+#file-tab .tab-pane{height:100%;}

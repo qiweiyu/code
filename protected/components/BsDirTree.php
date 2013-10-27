@@ -4,6 +4,7 @@ class BsDirTree extends CWidget
 	public $name;
 	public $items;
 	public $loadDirUrl;
+	public $clickFile;
 
 	public function init()
 	{
@@ -59,6 +60,7 @@ class BsDirTree extends CWidget
 		}
 		function '.$this->id.'_clickFile(node)
 		{
+			'.$this->clickFile.'(node, '.$this->id.'_findPath(node));
 		}
 		function '.$this->id.'_loadDir(node)
 		{

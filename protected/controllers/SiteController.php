@@ -131,7 +131,10 @@ class SiteController extends Controller
 	public function actionLoadDir($id=null, $path=null)
 	{
 		if($path != null)
+		{
+			$path = urldecode($path);
 			$isSafe = (strstr($path, './')===false) && (strstr($path, '.\\')===false);
+		}
 		else
 			$isSafe = false;
 		if($id != null)
@@ -141,6 +144,27 @@ class SiteController extends Controller
 		if($isSafe && $model)
 		{
 			echo json_encode($model->listDir($path));
+		}
+		else
+			throw new CHttpException(404);
+	}
+	public function actionViewFile($id=null, $path=null)
+	{
+		if($path != null)
+		{
+			$path = urldecode($path);
+			$isSafe = (strstr($path, './')===false) && (strstr($path, '.\\')===false);
+		}
+		else
+			$isSafe = false;
+		if($id != null)
+			$model = Code::model()->findByPk($id);
+		else
+			$model = null;
+		if($isSafe && $model && file_exists($model->sourcePath.$path) && !is_dir($model->sourcePath.$path))
+		{
+			$this->layout = '//layouts/view';
+			$this->render('file', array('content'=>CHtml::encode(file_get_contents($model->sourcePath.$path))));
 		}
 		else
 			throw new CHttpException(404);
