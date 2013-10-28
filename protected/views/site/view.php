@@ -13,7 +13,7 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-10 col-md-offset-2" style="padding-left:30px;">
+<div class="col-md-10 col-md-offset-2" style="padding-left:3%;">
 	<ul class="nav nav-tabs" id="file">
 	</ul>
 	<div class="tab-content" id="file-tab">

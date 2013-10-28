@@ -164,7 +164,26 @@ class SiteController extends Controller
 		if($isSafe && $model && file_exists($model->sourcePath.$path) && !is_dir($model->sourcePath.$path))
 		{
 			$this->layout = '//layouts/view';
-			$this->render('file', array('content'=>CHtml::encode(file_get_contents($model->sourcePath.$path))));
+			$pathinfo = pathinfo($model->sourcePath.$path);
+			if(isset($pathinfo['extension']))
+			{
+				switch($pathinfo['extension'])
+				{
+					case 'php':
+					case 'js':
+					case 'css':
+					case 'html':
+						$type = $pathinfo['extension'];
+						break;
+					default:
+						$type = false;
+				}
+			}
+			else
+			{
+				$type = false;
+			}
+			$this->render('file', array('type'=>$type, 'content'=>CHtml::encode(file_get_contents($model->sourcePath.$path))));
 		}
 		else
 			throw new CHttpException(404);

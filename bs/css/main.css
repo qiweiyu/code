@@ -1,4 +1,4 @@
 #file span.closePage{margin-left:10px;cursor:pointer;}
 #file span.clearCloseStyle{color:inherit;background:inherit;}
-#file.nav-tabs>li>a {border-color:#DDD;border-bottom-color:transparent;}
+#file.nav-tabs>li>a {border-color:#DDD;border-bottom-color:transparent;font-size:12px;padding:5px;}
 #file-tab .tab-pane{height:100%;}
