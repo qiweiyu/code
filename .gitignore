@@ -3,4 +3,4 @@ protected/runtime/
 themes/classic/views/
 protected/code/
 *.swp
-protected/config/main.php
+protected/config/db.php

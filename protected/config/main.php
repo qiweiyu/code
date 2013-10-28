@@ -27,13 +27,7 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=code',
-			'emulatePrepare' => true,
-			'username' => 'code',
-			'password' => 'GFhddCSznQrLMGj6',
-			'charset' => 'utf8',
-		),
+		'db'=>require_once(dirname(__FILE__).'/db.php'),
 		'errorHandler'=>array(
 			'errorAction'=>'site/error',
 		),
