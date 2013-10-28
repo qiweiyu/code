@@ -59,7 +59,7 @@ class BsVForm extends CActiveForm
 	protected function renderSubmit($name)
 	{
 			echo CHtml::openTag('div', array('class'=>'col-sm-offset-2 col-sm-10'));
-			echo CHtml::tag('button', array('type'=>'submit', 'class'=>'btn btn-default'), L::f($name));
+			echo CHtml::tag('button', array('type'=>'submit', 'class'=>'btn btn-default'), $name);
 			echo CHtml::closeTag('div');
 	}
 	protected function renderDropDownList($v, $labelHtmlOptions, $fieldHtmlOptions)

@@ -26,7 +26,7 @@ $(document).ready(function(){
 });
 function modifyHeight()
 {
-	$('#dir').height($(document).height()-$('#dir').position().top-20);
+	$('#dir').height($(document).height()-$('#dir').position().top-60);
 	$('#dir .panel').height($('#dir').height());
 	$('#dir .panel-body').height($('#dir').height()-$('#dir .panel-body').position().top);
 	$('#file-tab').height($('#dir').height()-$('#file').height());

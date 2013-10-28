@@ -29,7 +29,7 @@
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/site/index')),
 						array('label'=>'View', 'url'=>array('/site/view')),
-						array('label'=>'New', 'url'=>array('/site/upload'), 'visible'=>!Yii::app()->user->isGuest),
+						array('label'=>'New', 'url'=>array('/site/upload')),
 					),
 				)); ?>
 				<?php $this->widget('zii.widgets.CMenu',array(
@@ -47,6 +47,10 @@
 	<div style="height:50px;margin-bottom:20px;"></div>
 
 	<?php echo $content; ?>
+	<div style="height:40px;"></div>
+	<div id="footer" class="container well well-sm">
+		Copyright &copy; <a href="http://qi.weiyu.me" target="_blank">Weiyu Qi</a>. Powered By <a href="http://www.yiiframework.com/" target="_blank">Yii</a>. Thanks to <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, <a href="http://glyphicons.com/" target="_blank">Glyphicons</a>, <a href="https://code.google.com/p/google-code-prettify/" target="_blank">Google-code-prettify</a>. Contact me: <a href="mailto:qi@weiyu.me">qi@weiyu.me</a>.
+	</div>
 </div><!-- page -->
 
 </body>
