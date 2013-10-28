@@ -134,7 +134,7 @@ class SiteController extends Controller
 			$model = Code::model()->findByPk($id);
 		else
 			$model = null;
-		if($model && $path)
+		if($model && $path && is_dir($model->sourcePath.$path))
 		{
 			$isSafe = $model->isSafePath($path);
 		}
