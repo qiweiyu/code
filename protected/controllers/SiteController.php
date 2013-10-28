@@ -130,18 +130,17 @@ class SiteController extends Controller
 	}
 	public function actionLoadDir($id=null, $path=null)
 	{
-		if($path != null)
-		{
-			$path = urldecode($path);
-			$isSafe = (strstr($path, './')===false) && (strstr($path, '.\\')===false);
-		}
-		else
-			$isSafe = false;
 		if($id != null)
 			$model = Code::model()->findByPk($id);
 		else
 			$model = null;
-		if($isSafe && $model)
+		if($model && $path)
+		{
+			$isSafe = $model->isSafePath($path);
+		}
+		else
+			$isSafe = false;
+		if($isSafe)
 		{
 			echo json_encode($model->listDir($path));
 		}
@@ -150,18 +149,17 @@ class SiteController extends Controller
 	}
 	public function actionViewFile($id=null, $path=null)
 	{
-		if($path != null)
-		{
-			$path = urldecode($path);
-			$isSafe = (strstr($path, './')===false) && (strstr($path, '.\\')===false);
-		}
-		else
-			$isSafe = false;
 		if($id != null)
 			$model = Code::model()->findByPk($id);
 		else
 			$model = null;
-		if($isSafe && $model && file_exists($model->sourcePath.$path) && !is_dir($model->sourcePath.$path))
+		if($model && $path)
+		{
+			$isSafe = $model->isSafePath($path);
+		}
+		else
+			$isSafe = false;
+		if($isSafe && !is_dir($model->sourcePath.$path))
 		{
 			$this->layout = '//layouts/view';
 			$pathinfo = pathinfo($model->sourcePath.$path);

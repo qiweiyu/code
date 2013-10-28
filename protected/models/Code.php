@@ -126,11 +126,20 @@ class Code extends CActiveRecord
 		$this->saveFile();
 		return true;
 	}
+	public function isSafePath($path)
+	{
+		$path = urldecode($path);
+		if((strstr($path, './')===false) && (strstr($path, '.\\')===false) && (strstr($path, '..')===false))
+		{
+			return file_exists($this->sourcePath.$path);
+		}
+		return false;
+	}
 	public function listDir($path = null)
 	{
 		
 		if($path != null)
-			$isSafe = (strstr($path, './')===false) && (strstr($path, '.\\')===false);
+			$isSafe = $this->isSafePath($path);
 		else
 			$isSafe = true;
 		if($isSafe == false) return array();
